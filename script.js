@@ -52,7 +52,7 @@ function calculate(equation) {
         var partAfterBracket = (secondBracket < equation.length - 1)? equation.slice(secondBracket+1) : "" ;
         
         // redo the process till there is no brackets left
-        return test(partBeforeBracket + '' + test(insideBrackets).toString() + '' + partAfterBracket);
+        return calculate(partBeforeBracket + '' + calculate(insideBrackets).toString() + '' + partAfterBracket);
     }
 }
 
