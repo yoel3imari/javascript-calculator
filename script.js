@@ -7,52 +7,11 @@ function slctAll(e) {
 }
 
 function calculate(equation) {
-    console.log(equation);
-    if (equation.indexOf('(') == -1) {
-        try {
-            return eval(equation.toString());
-        } catch (error) {
-            console.log("An error has occured: [" + error + " ]");
-            return "Error";
-        }
-    }
-    else {
-        // get the equation inside brackets and solve it
-        // find the pair brackets position
-
-        // first brackets
-        var firstBracket = equation.indexOf('(');
-        /* console.log("first bracket: " + firstBracket); */
-        // memorise the part before 1st brackets
-        // verify if there is something before 1st bracket
-
-        var partBeforeBracket = (firstBracket > 0)? equation.slice(0, firstBracket) : "" ;
-
-        // second brackets
-        // if there is no 2nd bracket return error
-        if (equation.indexOf(')') == -1) {
-            console.log("Second Bracket missing");
-            return "Typing Error";
-        }
-        var secondBracket = equation.length - 1 - equation.split('').reverse().join('').indexOf(")");
-        /* console.log("second bracket: " + secondBracket); */
-
-        // if inside brackets is empty or brackets are misordered return error
-        if( (secondBracket - firstBracket) <= 1 ) {
-            console.log("Brackets missorder or Inside brackets empty");
-            return "Typing Error";
-        }
-
-        // brackets content
-        var insideBrackets = equation.slice(firstBracket + 1, secondBracket);
-        /* console.log("inside bracket: " + insideBrackets); */
-        // memorize content after 2nd brackets
-        // verify if there is something
-
-        var partAfterBracket = (secondBracket < equation.length - 1)? equation.slice(secondBracket+1) : "" ;
-        
-        // redo the process till there is no brackets left
-        return calculate(partBeforeBracket + '' + calculate(insideBrackets).toString() + '' + partAfterBracket);
+    try {
+        return eval(equation.toString());
+    } catch (error) {
+        console.log("An error has occured: [" + error + " ]");
+        return "Error";
     }
 }
 
@@ -62,17 +21,19 @@ const result = slctOne('#result');
 slctAll('.btn').forEach(elm => {
     elm.addEventListener('click', function () {
 
-        //console.log("i clicked on " + this.getAttribute("data-value") );
 
         var action = this.getAttribute("data-value").toLowerCase();
         switch (action) {
             case "=":
+                if( input.innerText == "" )
+                    break;
                 result.innerText = calculate(input.innerText);
+                input.innerText = "";
                 break;
 
             case "ac":
                 input.innerText = "";
-                result.innerText = ""
+                result.innerText = "";
                 break;
 
             default:
@@ -83,8 +44,14 @@ slctAll('.btn').forEach(elm => {
 });
 
 // bind keyboard to numbers
-document.addEventListener('onKeyPress', function (e) {
+document.addEventListener('keydown', function (e) {
     switch (e.keyCode) {
+
+        // clear all
+        case 46:
+        case 8:
+            slctOne('.ac').click();
+            break;
 
         case 48:
         case 96:
@@ -160,21 +127,13 @@ document.addEventListener('onKeyPress', function (e) {
             slctOne('.frct').click();
             break;
 
-        // clear all
-        case 67:
-            slctOne('.ac').click();
-            break;
-
         // =
         case 13:
-            slctOne('.equals').click();
-            break;
-
-        // =
         case 187:
             slctOne('.equals').click();
             break;
 
-        default: return;
+        default:
+            return;
     }
 })
