@@ -37,7 +37,7 @@ slctAll('.btn').forEach(elm => {
                 // solve op
                 result.innerText = calculate(input.innerText);
                 // record op in history
-                history.appendChild(newElm('p', input.innerText + " = " + result.innerText));
+                history.prepend(newElm('p', input.innerText + " = " + result.innerText));
                 // clear op input
                 input.innerText = "";
                 break;
