@@ -9,48 +9,53 @@
     <title>Calculator</title>
 </head>
 
-<body class="dark-mode">
+<body class="light">
     <!-- <div id="SwitchMode">
         <img src="img/dark-mode.png" alt="">
     </div> -->
-    <div class="op-history">
-        Historical operations here
-    </div>
-    <div class="calculator-grid">
-        <div class="output">
-            <div id="input" class="previous-op"></div>
-            <div id="result" class="result"></div>
+    <div class="wrapper">
+        <div class="op-history wrp-fr">
+            <h2>History</h2>
+            <div id="history"></div>
         </div>
-        <button class="btn ac" data-value="ac">AC</button>
-        <button class="btn leftb" data-value="(">(</button>
-        <button class="btn rightb" data-value=")">)</button>
-        <button class="btn frct" data-value="/">÷</button>
 
-        <button class="btn seven" data-value="7">7</button>
-        <button class="btn eight" data-value="8">8</button>
-        <button class="btn nine" data-value="9">9</button>
-        <button class="btn multp" data-value="*">×</button>
+        <div class="calculator-grid">
+            <div class="output">
+                <div id="input" class="previous-op"></div>
+                <div id="result" class="result"></div>
+            </div>
+            <button class="btn ac" data-value="ac">AC</button>
+            <button class="btn leftb" data-value="(">(</button>
+            <button class="btn rightb" data-value=")">)</button>
+            <button class="btn frct" data-value="/">÷</button>
 
-        <button class="btn four" data-value="4">4</button>
-        <button class="btn five" data-value="5">5</button>
-        <button class="btn six" data-value="6">6</button>
-        <button class="btn minus" data-value="-">-</button>
+            <button class="btn seven" data-value="7">7</button>
+            <button class="btn eight" data-value="8">8</button>
+            <button class="btn nine" data-value="9">9</button>
+            <button class="btn multp" data-value="*">×</button>
 
-        <button class="btn one" data-value="1">1</button>
-        <button class="btn two" data-value="2">2</button>
-        <button class="btn three" data-value="3">3</button>
-        <button class="btn plus" data-value="+">+</button>
-        
-        <button class="btn dot" data-value=".">.</button>
-        <button class="btn zero" data-value="0">0</button>
-        <button class="span-2 btn equals" data-value="=">=</button>
+            <button class="btn four" data-value="4">4</button>
+            <button class="btn five" data-value="5">5</button>
+            <button class="btn six" data-value="6">6</button>
+            <button class="btn minus" data-value="-">-</button>
+
+            <button class="btn one" data-value="1">1</button>
+            <button class="btn two" data-value="2">2</button>
+            <button class="btn three" data-value="3">3</button>
+            <button class="btn plus" data-value="+">+</button>
+
+            <button class="btn dot" data-value=".">.</button>
+            <button class="btn zero" data-value="0">0</button>
+            <button class="span-2 btn equals" data-value="=">=</button>
+        </div>
+
+        <div class="supp-options wrp-fr">
+            <h2>More Options</h2>
+            <span>Ln() | Exp() | Log() | Sin-Cos-Tan | Power | SquareRoot() </span>
+        </div>
     </div>
-    
-    <div class="supp-options">
-        <span>Ln() | Exp() | Log() | Sin-Cos-Tan | Power | SquareRoot() </span>
-    </div>
-    
-    <script src="script.js" >
+
+    <script src="script.js">
     </script>
 
 </body>

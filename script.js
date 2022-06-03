@@ -6,6 +6,12 @@ function slctAll(e) {
     return document.querySelectorAll(e);
 }
 
+function newElm(elm, content) {
+    var e = document.createElement(elm);
+    e.textContent = content;
+    return e;
+}
+
 function calculate(equation) {
     try {
         return eval(equation.toString());
@@ -17,26 +23,33 @@ function calculate(equation) {
 
 const input = slctOne('#input');
 const result = slctOne('#result');
+const history = slctOne('#history');
 
 slctAll('.btn').forEach(elm => {
     elm.addEventListener('click', function () {
-
-
+        // get action from the elm clicked (this)
         var action = this.getAttribute("data-value").toLowerCase();
+        // what action do we have
         switch (action) {
             case "=":
-                if( input.innerText == "" )
+                if (input.innerText == "")
                     break;
+                // solve op
                 result.innerText = calculate(input.innerText);
+                // record op in history
+                history.appendChild(newElm('p', input.innerText + " = " + result.innerText));
+                // clear op input
                 input.innerText = "";
                 break;
 
             case "ac":
+                // clear all
                 input.innerText = "";
                 result.innerText = "";
                 break;
 
             default:
+                // add symbol|number to op input
                 input.innerText = input.innerText + action.toString();
                 break;
         }
