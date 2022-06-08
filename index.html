@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@300;500;900&display=swap"
+        rel="stylesheet" />
+    <title>JavaScript-Super-Calculator by yoel3imari</title>
 </head>
 
 <body class="light">
-    <!-- <div id="SwitchMode">
-        <img src="img/dark-mode.png" alt="">
-    </div> -->
+    <div id="docs">
+        <a href="docs.html">Documentation</a>
+    </div>
     <div class="wrapper">
         <div class="op-history wrp-fr">
             <h2>History</h2>
@@ -21,38 +23,54 @@
 
         <div class="calculator-grid">
             <div class="output">
-                <div id="input" class="previous-op"></div>
+                <div id="input" data-equation="" class="previous-op"></div>
                 <div id="result" class="result"></div>
             </div>
-            <button class="btn ac" data-value="ac">AC</button>
-            <button class="btn leftb" data-value="(">(</button>
-            <button class="btn rightb" data-value=")">)</button>
-            <button class="btn frct" data-value="/">÷</button>
+            <button class="btn ac" data-show="" data-value="ac">AC</button>
+            <button class="btn leftb" data-show="(" data-value="(">(</button>
+            <button class="btn rightb" data-show=")" data-value=")">)</button>
+            <button class="btn frct" data-show="÷" data-value="/">÷</button>
 
-            <button class="btn seven" data-value="7">7</button>
-            <button class="btn eight" data-value="8">8</button>
-            <button class="btn nine" data-value="9">9</button>
-            <button class="btn multp" data-value="*">×</button>
+            <button class="btn seven" data-show="7" data-value="7">7</button>
+            <button class="btn eight" data-show="8" data-value="8">8</button>
+            <button class="btn nine" data-show="9" data-value="9">9</button>
+            <button class="btn multp" data-show="×" data-value="*">×</button>
 
-            <button class="btn four" data-value="4">4</button>
-            <button class="btn five" data-value="5">5</button>
-            <button class="btn six" data-value="6">6</button>
-            <button class="btn minus" data-value="-">-</button>
+            <button class="btn four" data-show="4" data-value="4">4</button>
+            <button class="btn five" data-show="5" data-value="5">5</button>
+            <button class="btn six" data-show="6" data-value="6">6</button>
+            <button class="btn minus" data-show="-" data-value="-">-</button>
 
-            <button class="btn one" data-value="1">1</button>
-            <button class="btn two" data-value="2">2</button>
-            <button class="btn three" data-value="3">3</button>
-            <button class="btn plus" data-value="+">+</button>
+            <button class="btn one" data-show="1" data-value="1">1</button>
+            <button class="btn two" data-show="2" data-value="2">2</button>
+            <button class="btn three" data-show="3" data-value="3">3</button>
+            <button class="btn plus" data-show="+" data-value="+">+</button>
 
-            <button class="btn dot" data-value=".">.</button>
-            <button class="btn zero" data-value="0">0</button>
-            <button class="span-2 btn equals" data-value="=">=</button>
+            <button class="btn dot" data-show="." data-value=".">.</button>
+            <button class="btn zero" data-show="0" data-value="0">0</button>
+            <button class="span-2 btn equals" data-show="=" data-value="=">=</button>
         </div>
 
         <div class="supp-options wrp-fr">
             <h2>More Options</h2>
-            <span>Ln() | Exp() | Log() | Sin-Cos-Tan | Power | SquareRoot() </span>
+            <div id="options">
+                <button class="opt " data-option="ln(" data-show="ln(">Ln</button>
+                <button class="opt " data-option="log(" data-show="log(">Log</button>
+                <button class="opt " data-option="e(" data-show="e(">e<sup>x</sup></button>
+                <button class="opt " data-option="sin(" data-show="sin(">Sin</button>
+                <button class="opt " data-option="cos(" data-show="cos(">Cos</button>
+                <button class="opt " data-option="tan(" data-show="tan(">Tan</button>
+                <!-- // power function should be like (base)p(power) : (2)p(4) = 2^4 = 16  -->
+                <button class="opt " data-option=")p(" data-show=")^(">Y<sup>x</sup></button>
+                <!-- // square function should be like (base)² : (2+ln(1))² = (2+0)² = 4 -->
+                <button class="opt " data-option=")p(2)" data-show=")²">X<sup>2</sup></button>
+                <button class="opt " data-option="√(" data-show="√(">√</button>
+            </div>
         </div>
+    </div>
+
+    <div id="credit">
+        Designed & Developed By: ____ <a href="https://github.com/yoel3imari">@yoel3imari</a> ____ <a href="https://twitter.com/yoel3imari">Twitter</a>
     </div>
 
     <script src="script.js">
