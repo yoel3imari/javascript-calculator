@@ -9,7 +9,7 @@
     optionInsideBrkt: fnct that solve Ln(), e(), cos, sin, tan, √(), log()
     powerCaseOpt: fnct that solve power function ()^() and ()²
     calculate: fnct that verify if the formula has any special Math function, calculate each one of them if there is any, and return the final result
-    
+
 
 */
 
@@ -198,7 +198,7 @@ function powerCaseOpt(opt, equation) {
 
     var power = equation.slice(powerFirstBrkt + 1, powerScndBrkt);
     var base = equation.slice(baseFirstBrkt + 1, baseScndBrkt);
-    
+
     console.log("base => " + base + " power => " + power);
 
     base = calculate(base);
@@ -231,9 +231,9 @@ function calculate(equation) {
         ) {
             // eval is very dangious because
             // it allows malisious script to be executed
-            
+
             //return eval(equation.toString());
-            
+
             return new Function('return ' + equation.toString())()
         }
 
@@ -298,10 +298,10 @@ slctAll('.btn').forEach(elm => {
                 // solve op
                 var equation = input.getAttribute("data-equation");
                 var solved = calculate(equation);
-                if( 
+                if (
                     solved == "Infinity" ||
                     solved == "-Infinity"
-                ){
+                ) {
                     solved = "Error 2";
                 }
                 result.innerText = solved;
@@ -321,7 +321,7 @@ slctAll('.btn').forEach(elm => {
 
             default:
                 // clear result
-                if( result.innerText != "" ){
+                if (result.innerText != "") {
                     result.innerText = "";
                 }
                 // add symbol|number to op input
@@ -406,7 +406,7 @@ document.addEventListener('keydown', function (e) {
             slctOne('.nine').click();
             break;
 
-        case 190:
+        case 110:
             slctOne('.dot').click();
             break;
 
@@ -430,6 +430,15 @@ document.addEventListener('keydown', function (e) {
             slctOne('.frct').click();
             break;
 
+        // (
+        case 219:
+            slctOne('.leftb').click();
+            break;
+
+        // )
+        case 221:
+            slctOne('.rightb').click();
+            break;
         // =
         case 13:
         case 187:
@@ -439,4 +448,11 @@ document.addEventListener('keydown', function (e) {
         default:
             return;
     }
+})
+
+slctOne('#mode').addEventListener("click", () => {
+    var mode = slctOne("body").getAttribute("data-mode");
+    var swtch = (mode == "dark")?"light":"dark";
+    slctOne("body").setAttribute("class", swtch + "-mode");
+    slctOne("body").setAttribute("data-mode", swtch);
 })

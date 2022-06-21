@@ -5,13 +5,32 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
+    transition: all .1s ease-in-out;
+}
+
+/* Mode */
+.light-mode {
+    --bg: azure;
+    --text: #000;
+    --high: rgb(77, 228, 228);
+    --link: rgb(1, 70, 131);
+    --hover: rgb(247, 63, 216);
+}
+
+.dark-mode {
+    --bg: #202020;
+    --text: rgb(242, 247, 247);
+    --high: rgb(228, 77, 178);
+    --link: rgb(183, 91, 219);
+    --hover: rgb(247, 63, 216);
 }
 
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-}
+    background-color: var(--bg);
+/*     background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+ */}
 
 /* layout */
 
@@ -24,7 +43,7 @@ body {
 }
 
 #docs a {
-    color: aliceblue !important;
+    color: var(--link) !important;
     font-weight: lighter;
     font-family: 'Lucida Sans', Verdana, sans-serif;
 }
@@ -40,7 +59,7 @@ body {
 }
 
 #credit a {
-    color: aliceblue !important;
+    color: var(--link) !important;
     font-weight: lighter;
     font-family: 'Lucida Sans', Verdana, sans-serif;
 }
@@ -69,8 +88,8 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    color: rgba(0, 0, 0);
-    border-bottom: 1px solid rgba(255, 255, 255, .90);
+    color: var(--high);
+    border-bottom: 1px solid var(--high);
 }
 
 /* history */
@@ -78,7 +97,7 @@ body {
 #history {
     overflow-y: auto;
     padding: .5rem;
-    border: 1px solid rgba(255, 255, 255, .90);
+    border: 1px solid var(--high);
 }
 
 #history::-webkit-scrollbar {
@@ -102,7 +121,7 @@ body {
 }
 
 #history p:hover {
-    color: rgba(255, 255, 255, .90);
+    color: var(--hover);
 }
 
 /* main app */
@@ -131,12 +150,12 @@ body {
 }
 
 .previous-op {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--high);
     font-size: 1rem;
 }
 
 .result {
-    color: rgba(255, 255, 255);
+    color: var(--high);
     font-size: 2.5rem;
 }
 
@@ -148,7 +167,7 @@ body {
     cursor: pointer;
     font-size: 1.5rem;
     outline: none;
-    border: 1px solid white;
+    border: 1px solid var(--high);
     background-color: rgba(255, 255, 255, .75);
 }
 
@@ -167,5 +186,23 @@ body {
     cursor: pointer;
     font-size: 1.5rem;
     outline: none;
-    border: 1px solid white;
+    border: 1px solid var(--high);
+}
+
+.switch-mode {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.switch-mode button {
+    border: 2px solid var(--high);
+    border-radius: 50px;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    background-color: var(--bg);
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    color: var(--text);
 }
