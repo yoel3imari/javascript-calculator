@@ -1,5 +1,6 @@
-# Javascript-Calculator
+# superCalculator.JS
 javascript simple calculator with keyboard interaction
+### check it out on : <a href="https://super-calculater-69380.web.app/">superCalculator.JS</a>
 
 <!DOCTYPE html>
 <html lang="en">
